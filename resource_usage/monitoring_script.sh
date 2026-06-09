@@ -330,7 +330,7 @@ monitor_matlab() {
 
     {
         echo "===== MATLAB Execution Summary ====="
-        echo "Script:               $matlab_script"
+        echo "Script:               $matlab_expr"
         echo "Exit status:          $matlab_exit"
         echo "Wall time (ms):       $wall_time"
         echo "Wall time (hh:mm:ss): $(printf '%02d:%02d:%02d' $((wall_sec/3600)) $(( (wall_sec%3600)/60 )) $((wall_sec%60)) )"

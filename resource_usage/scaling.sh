@@ -151,13 +151,36 @@ run_sample() {
     local sample=$1        # e.g. "sample01"
     local sample_outdir=$2 # e.g. .../n03_samples/sample01
 
-    local pipeline_outdir="$sample_outdir/process_pipeline"
+    #local pipeline_outdir="$sample_outdir/process_pipeline"
     local count_outdir="$sample_outdir/process_count"
 
-    log "    Sample $sample: running pipeline (intensity+align+stitch)..."
+    # run intensity
+    log "    Sample $sample: running pipeline (intensity)..."
     bash "$MONITOR_SCRIPT" \
-        -c "NM_config('process','$sample',true)" \
-        -o "$pipeline_outdir"
+        -c "NM_config('intensity','$sample',true)" \
+        -o "$sample_outdir/intensity"
+
+    local exit_code=$?
+    if [ $exit_code -ne 0 ]; then
+        log "ERROR: pipeline process intensity failed for $sample (exit code $exit_code)"
+        exit 1
+    fi
+    # run alignment
+    log "    Sample $sample: running pipeline (align)..."
+    bash "$MONITOR_SCRIPT" \
+        -c "NM_config('align','$sample',true)" \
+        -o "$sample_outdir/align"
+
+    local exit_code=$?
+    if [ $exit_code -ne 0 ]; then
+        log "ERROR: pipeline process align failed for $sample (exit code $exit_code)"
+        exit 1
+    fi
+    # run stitching
+    log "    Sample $sample: running pipeline (stitch)..."
+    bash "$MONITOR_SCRIPT" \
+        -c "NM_config('stitch','$sample',true)" \
+        -o "$sample_outdir/stitch"
 
     local exit_code=$?
     if [ $exit_code -ne 0 ]; then
@@ -230,16 +253,16 @@ run_configuration() {
         sum_process_ms=$(( sum_process_ms + ${pipeline_rt:-0} + ${count_rt:-0} ))
     done
 
-    # Convert to hours for logging
-    local total_wall_h=$(awk "BEGIN {printf '%.4f', $total_wall_ms/3600000}")
-    local sum_process_h=$(awk "BEGIN {printf '%.4f', $sum_process_ms/3600000}")
+    # Convert to minutes for logging
+    local total_wall_m=$(awk "BEGIN {printf '%.4f', $total_wall_ms/60000}")
+    local sum_process_m=$(awk "BEGIN {printf '%.4f', $sum_process_ms/60000}")
 
     log "Configuration $n samples complete."
-    log "  Total wall time:       ${total_wall_ms} ms (${total_wall_h} h)"
-    log "  Sum of process times:  ${sum_process_ms} ms (${sum_process_h} h)"
+    log "  Total wall time:       ${total_wall_ms} ms (${total_wall_m} m)"
+    log "  Sum of process times:  ${sum_process_ms} ms (${sum_process_m} m)"
 
     # Append to summary CSV
-    echo "$n,$total_wall_ms,$total_wall_h,$sum_process_ms,$sum_process_h" \
+    echo "$n,$total_wall_ms,$total_wall_m,$sum_process_ms,$sum_process_m" \
         >> "$BASE_OUTDIR/scaling_summary.csv"
 
     # Delete MATLAB pipeline outputs before next configuration
@@ -268,7 +291,7 @@ main() {
     touch "$LOG_FILE"
 
     # Write CSV header
-    echo "n_samples,total_wall_ms,total_wall_h,sum_process_ms,sum_process_h" \
+    echo "n_samples,total_wall_ms,total_wall_m,sum_process_ms,sum_process_m" \
         > "$BASE_OUTDIR/scaling_summary.csv"
 
     log_separator
@@ -293,10 +316,10 @@ main() {
     # Print summary table to terminal
     echo ""
     echo "===== Scaling Summary ====="
-    echo "n_samples | total_wall_h | sum_process_h"
+    echo "n_samples | total_wall_m | sum_process_m"
     echo "----------|--------------|---------------"
-    tail -n +2 "$BASE_OUTDIR/scaling_summary.csv" | while IFS=, read n twms twh spms sph; do
-        printf "%-9s | %-12s | %s\n" "$n" "$twh" "$sph"
+    tail -n +2 "$BASE_OUTDIR/scaling_summary.csv" | while IFS=, read n twms twm spms spm; do
+        printf "%-9s | %-12s | %s\n" "$n" "$twm" "$spm"
     done
 }
 

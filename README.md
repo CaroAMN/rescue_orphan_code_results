@@ -5,7 +5,9 @@ This repository containes scripts and parts of the results for the paper ( to be
 The Repository ist structured as follows: 
 
 resource_usage: 
-- Figures: Contains Figure 5 and Figure 7 as png
+- figures: 
+    - `Figure 5`
+    - `Figure 7` 
 - results: 
     - `screen_output.txt` commandline output generated during the benchmark run 
     - `benchmark-summary_stats.json` Dataframe containing the summary statistics from the benchmark run 

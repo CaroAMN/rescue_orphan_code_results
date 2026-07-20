@@ -1,6 +1,6 @@
 # Rescuing Orphan Bioinformatics Workflows
 
-This repository containes scripts and parts of the results for the paper ( to be submitted: From Abandoned Scripts to FAIR Community Pipelines: Rescuing Orphan Bioinformatics Workflows with nf-core — Lessons from Light-Sheet Fluorescence Microscopy)
+This repository contains scripts and parts of the results for the paper ( to be submitted: From Abandoned Scripts to FAIR Community Pipelines: Rescuing Orphan Bioinformatics Workflows with nf-core — Lessons from Light-Sheet Fluorescence Microscopy)
 
 The Repository ist structured as follows: 
 
@@ -11,7 +11,7 @@ resource_usage:
 - results: aggregated results for resource usage and batch processing
     - `screen_output.txt`: commandline output generated during the benchmark run 
     - `benchmark-summary_stats.json`: dataframe containing the summary statistics from the benchmark run 
-    - `scaling_results.csv`: aggregated data obtained by the batch processing experimentf
+    - `scaling_results.csv`: aggregated data obtained by the batch processing experiment
 - scripts: contains bash scripts for the benchmark run and scaling experiments
     - `benshmark.sh`: the script was used to run the benchmark experiments of executing nf-core/lsmquant and NuMorph each 30 times on the same sample automatically and in random order. 
     - `monitoring_script.sh`: the script is used to monitor NuMorphs resource usage during execution. It is based on the logic of how nextflow monitors processes to enable similar comparison of resources. 

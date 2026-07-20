@@ -1,0 +1,1068 @@
+device:GPU:0 with 22553 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce RTX 3090, pci bus id: 0000:02:00.0, compute capability: 8.6)
+Working on chunk 1 out of 1
+Reading slices 0 through 18
+Padding Chunk End...
+Rescaling Intensity...
+Images prepared in:  0:00:05.149183
+Object mask prediction time elapsed:  0:01:47.567103
+Postprocessing time elapsed:  0:02:07.979022
+Nuclei counted:  135129
+Total nuclei counted:  135129
+Removed 0 empty nuclei
+Removed 549 touching nuclei
+Total nuclei counted:  134580
+Total time elapsed:  0:02:08.834445
+25-Jun-2026 01:59:29     Total cells counted: 134580
+
+ans =
+
+  struct with fields:
+
+              annotation_file: "3Drecon-ADMBA-P4_annotation.mat"
+           annotation_mapping: "atlas"
+        annotation_resolution: 25
+                   atlas_file: "3Drecon-ADMBA-P4_atlasVolume.nii"
+         average_nuc_diameter: 11
+                  channel_num: ["C01"    "C00"]
+                chunk_overlap: [16 16 8]
+                   chunk_size: [112 112 32]
+               classify_cells: "true"
+            classify_channels: []
+              classify_method: "threshold"
+     contains_nuclear_channel: "true"
+                 count_method: "3dunet"
+                 count_nuclei: "true"
+                          gpu: '0'
+                        group: ["TEST"    "WT"    "R1"]
+                   hemisphere: "left"
+                img_directory: "/mnt/ssd/numorph_testdata_s/test_images/ctip2_topro"
+         intensity_expression: "1*mode + 3*mad"
+         intensity_thresholds: []
+                 keep_classes: [1 2 3 4]
+                  load_groups: []
+                 load_patches: "true"
+                  lowerThresh: []
+                     ls_width: 50
+                   main_stage: 'analyze'
+                      markers: ["topro"    "ctip2"]
+    mask_cerebellum_olfactory: "true"
+             min_class_thresh: 0.5000
+                min_intensity: 200
+                   model_file: "075_121_model.h5"
+                    n_patches: 1000
+                  orientation: "ail"
+             output_directory: "/mnt/ssd/performance_benchmark/matlab/replicate_08"
+                      overlap: 0.1500
+                   patch_size: [50 6]
+                  points_file: []
+                 position_exp: ["[\d*"    "\d*]"    "Z\d*"]
+    prealign_annotation_index: []
+            process_directory: "/mnt/ssd/performance_benchmark/matlab/replicate_08/stitched"
+              register_images: "true"
+        registration_channels: 1
+       registration_direction: "atlas_to_image"
+      registration_parameters: "default"
+    registration_prealignment: "image"
+          remeasure_centroids: "false"
+            resample_channels: []
+              resample_images: "true"
+          resample_resolution: 25
+                   resolution: {[1.2100 1.2100 4]  [1.2100 1.2100 4]}
+                       sample: 'sample08'
+                    sample_id: 'sample08'
+                    save_flag: 1
+       save_registered_images: "true"
+                 signalThresh: []
+                        stage: 'analyze'
+                  upperThresh: []
+          use_annotation_mask: "false"
+                   use_points: "false"
+         use_processed_images: "stitched"
+               use_structures: []
+               variable_names: {8x1 cell}
+              z_normalization: "true"
+
+===== MATLAB Execution Summary =====
+Script:               NM_config('count','sample08',true)
+Exit status:          0
+Wall time (ms):       149300
+Wall time (hh:mm:ss): 00:02:29
+CPU usage:            44%
+CPU cores available:  16
+CPU model:            Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz
+Peak RSS:             0 MB
+Peak virtual mem:     0 MB
+Bytes read:           0
+Bytes written:        2596864
+
+Trace file:  /mnt/ssd/performance_benchmark/matlab/replicate_08/process_count/matlab_trace.log
+CSV file:    /mnt/ssd/performance_benchmark/matlab/replicate_08/process_count/matlab_resource_usage.csv
+[2026-06-25 01:59:33]   MATLAB process count complete.
+[2026-06-25 01:59:33] --- MATLAB replicate 08 DONE ---
+[2026-06-25 01:59:33] Completed 55 / 60 runs
+============================================================
+[2026-06-25 01:59:33] Run 56 / 60 : matlab_25
+============================================================
+[2026-06-25 01:59:33] --- MATLAB replicate 25 START ---
+[2026-06-25 01:59:33] Output dir: /mnt/ssd/performance_benchmark/matlab/replicate_25
+[2026-06-25 01:59:33]   Running MATLAB process: intensity
+[2026-06-25 01:59:33]   Command: NM_config('intensity','sample25',true)
+Starting MATLAB: /home/schwitalla/Documents/R2023a/bin/./matlab -nodesktop -nodisplay -nosplash -batch "NM_config('intensity','test_monitor',tru
+e)"
+Output directory: /mnt/ssd/performance_benchmark/matlab/replicate_25/process_intensity
+MATLAB PID: 889541
+Warning: Function cummax has the same name as a MATLAB built-in. We suggest you
+rename the function to avoid a potential name conflict.
+> In path (line 109)
+In addpath (line 86)
+In NM_config (line 39)
+Warning: Function det has the same name as a MATLAB built-in. We suggest you
+rename the function to avoid a potential name conflict.
+> In path (line 109)
+In addpath (line 86)
+In NM_config (line 39)
+25-Jun-2026 01:59:36     Working on sample sample25
+25-Jun-2026 01:59:36     Reading image filename information from raw image directory
+25-Jun-2026 01:59:37     Saving path table
+25-Jun-2026 01:59:37     Defining new adjustment parameters
+25-Jun-2026 01:59:37     Measuring intensity for topro
+25-Jun-2026 01:59:37     Measuring thresholds...
+25-Jun-2026 01:59:38     Measured lower, signal, & upper thresholds:     116.0   207.0   3181.0
+25-Jun-2026 01:59:38     Loading 16 images for estimating flatfield
+25-Jun-2026 01:59:39     Running BaSIC on 16 images
+Warning: BaSiC measured some relatively large adjustment values in the
+flatfield image which may not be accurate. Try subsetting to tile positions
+with uniform signal throughout the full field of view. Otherwise BaSiC may not
+be the appropriate method for shading correction.
+> In measure_images (line 61)
+In perform_intensity_adjustment (line 111)
+In NM_process (line 110)
+In NM_config (line 209)
+25-Jun-2026 01:59:46     Measuring between tile differences horizontally
+25-Jun-2026 01:59:46     Measuring between tile differences vertically
+25-Jun-2026 01:59:47     Final Tile Adjustment Matrices:
+    0.9224    0.9298
+    1.0585    1.0914
+
+25-Jun-2026 01:59:47     Measuring intensity for ctip2
+25-Jun-2026 01:59:47     Measuring thresholds...
+25-Jun-2026 01:59:47     Measured lower, signal, & upper thresholds:     112.0   196.0   2683.0
+25-Jun-2026 01:59:47     Loading 16 images for estimating flatfield
+25-Jun-2026 01:59:48     Running BaSIC on 16 images
+25-Jun-2026 01:59:50     Measuring between tile differences horizontally
+25-Jun-2026 01:59:50     Measuring between tile differences vertically
+25-Jun-2026 01:59:51     Final Tile Adjustment Matrices:
+    0.9925    0.9053
+    1.0637    1.0406
+
+25-Jun-2026 01:59:51     Saving adjustment parameters
+25-Jun-2026 01:59:52     Saving samples
+25-Jun-2026 01:59:52     Saving adjusted images for middle slice
+25-Jun-2026 01:59:53     Saving current intensity adjustment visualizations
+
+ans =
+
+  struct with fields:
+
+                   DoG_factor: [1 1]
+                      DoG_img: ["false"    "false"]
+                   DoG_minmax: [0.8000 2]
+                        Gamma: [1 1]
+             adjust_intensity: "true"
+         adjust_tile_position: "true"
+          adjust_tile_shading: "basic"
+               align_channels: []
+                 align_chunks: []
+                 align_method: "translation"
+                 align_slices: {}
+               align_stepsize: 5
+                  align_tiles: []
+              blending_method: ["sigmoid"    "sigmoid"]
+                   border_pad: 25
+            channel_alignment: "true"
+                  channel_num: ["C01"    "C00"]
+                    chunk_pad: 30
+          darkfield_intensity: [101 101]
+               elastix_params: "32_bins"
+                    flip_axis: "none"
+                        group: ["TEST"    "WT"    "R1"]
+                   hemisphere: "left"
+                   hist_match: 64
+                       ig_idx: [0 0]
+               ignore_markers: "Auto"
+                img_directory: "/mnt/ssd/numorph_testdata_s/test_images/ctip2_topro"
+         laser_y_displacement: 0
+        load_alignment_params: "true"
+                  lowerThresh: []
+                     ls_width: 50
+                   main_stage: 'process'
+                      markers: ["topro"    "ctip2"]
+           mask_int_threshold: []
+               max_chunk_size: 300
+                   nuc_radius: 13
+                      only_pc: "false"
+                  orientation: "ail"
+             output_directory: "/mnt/ssd/performance_benchmark/matlab/replicate_25"
+                      overlap: 0.1500
+                 position_exp: ["[\d*"    "\d*]"    "Z\d*"]
+                    pre_align: "false"
+                   resample_s: [3 3 1]
+          rescale_intensities: ["false"    "false"]
+                   resolution: {[1.2100 1.2100 4]  [1.2100 1.2100 4]}
+                  rotate_axis: 0
+                       sample: 'sample25'
+                    sample_id: 'sample25'
+           sampling_frequency: 0.2000
+                    save_flag: 1
+                  save_images: "true"
+                 save_samples: "true"
+                           sd: 0.0500
+     shading_correction_tiles: []
+            shading_intensity: 1
+           shading_smoothness: 2
+              sift_refinement: "true"
+                 signalThresh: []
+                 single_sheet: ["true"    "true"]
+                   smooth_img: ["false"    "false"]
+                 smooth_sigma: [1 1]
+                        stage: 'process'
+                stitch_images: "true"
+           stitch_start_slice: []
+           stitch_sub_channel: []
+             stitch_sub_stack: []
+          subtract_background: ["false"    "false"]
+    update_intensity_channels: []
+          update_z_adjustment: "true"
+                  upperThresh: []
+         use_processed_images: "false"
+               variable_names: {23x1 cell}
+                    z_initial: [0 0]
+                  z_positions: 0.0100
+                     z_window: 5
+
+===== MATLAB Execution Summary =====
+Script:               NM_config('intensity','sample25',true)
+Exit status:          0
+Wall time (ms):       32735
+Wall time (hh:mm:ss): 00:00:32
+CPU usage:            1847%
+CPU cores available:  16
+CPU model:            Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz
+Peak RSS:             0 MB
+Peak virtual mem:     0 MB
+Bytes read:           4096
+Bytes written:        183414784
+
+Trace file:  /mnt/ssd/performance_benchmark/matlab/replicate_25/process_intensity/matlab_trace.log
+CSV file:    /mnt/ssd/performance_benchmark/matlab/replicate_25/process_intensity/matlab_resource_usage.csv
+[2026-06-25 02:00:06]   MATLAB process intensity complete.
+[2026-06-25 02:00:06]   Running MATLAB process: align
+[2026-06-25 02:00:06]   Command: NM_config('align','sample25',true)
+Starting MATLAB: /home/schwitalla/Documents/R2023a/bin/./matlab -nodesktop -nodisplay -nosplash -batch "NM_config('intensity','test_monitor',tru
+e)"
+Output directory: /mnt/ssd/performance_benchmark/matlab/replicate_25/process_align
+MATLAB PID: 890578
+Warning: Function cummax has the same name as a MATLAB built-in. We suggest you
+rename the function to avoid a potential name conflict.
+> In path (line 109)
+In addpath (line 86)
+In NM_config (line 39)
+Warning: Function det has the same name as a MATLAB built-in. We suggest you
+rename the function to avoid a potential name conflict.
+> In path (line 109)
+In addpath (line 86)
+In NM_config (line 39)
+25-Jun-2026 02:00:09     Working on sample sample25
+25-Jun-2026 02:00:09     Reading image filename information from raw image directory
+25-Jun-2026 02:00:09     Quick loading from table
+25-Jun-2026 02:00:09     Loading adjustment parameters
+25-Jun-2026 02:00:10     Aligning channels by translation
+25-Jun-2026 02:00:10     Performing channel alignment z calculation for ctip2/topro
+  Columns 1 through 7
+
+    0.3612    0.3782    0.4577    0.4728    0.4705    0.5179    0.5155
+
+  Columns 8 through 11
+
+    0.4952    0.5045    0.5078    0.5052
+
+25-Jun-2026 02:00:14     Predicted z displacement of 0 for tile 1 x 1
+  Columns 1 through 7
+
+    0.4988    0.5042    0.4992    0.5137    0.5810    0.6456    0.6284
+
+  Columns 8 through 11
+
+    0.5524    0.5057    0.4943    0.4987
+
+25-Jun-2026 02:00:17     Predicted z displacement of 0 for tile 1 x 2
+  Columns 1 through 7
+
+    0.3474    0.3478    0.3503    0.3683    0.3863    0.3893    0.3809
+
+  Columns 8 through 11
+
+    0.3449    0.3392    0.3366    0.3122
+
+25-Jun-2026 02:00:21     Predicted z displacement of 0 for tile 2 x 1
+  Columns 1 through 7
+
+    0.5884    0.5945    0.6003    0.6023    0.6075    0.6091    0.6057
+
+  Columns 8 through 11
+
+    0.6065    0.5984    0.5975    0.5943
+
+25-Jun-2026 02:00:24     Predicted z displacement of 0 for tile 2 x 2
+25-Jun-2026 02:00:24     Saving z displacement matrix
+25-Jun-2026 02:00:24     Aligning channels by translation to topro for tile 1 x 1
+25-Jun-2026 02:00:24     Using z_displacement 0 for marker ctip2
+25-Jun-2026 02:00:28     1 out of 5 images completed
+25-Jun-2026 02:00:30     2 out of 5 images completed
+25-Jun-2026 02:00:33     3 out of 5 images completed
+25-Jun-2026 02:00:36     4 out of 5 images completed
+25-Jun-2026 02:00:39     5 out of 5 images completed
+25-Jun-2026 02:00:39     Aligning channels by translation to topro for tile 1 x 2
+25-Jun-2026 02:00:39     Using z_displacement 0 for marker ctip2
+25-Jun-2026 02:00:42     1 out of 5 images completed
+25-Jun-2026 02:00:45     2 out of 5 images completed
+25-Jun-2026 02:00:47     3 out of 5 images completed
+25-Jun-2026 02:00:50     4 out of 5 images completed
+25-Jun-2026 02:00:53     5 out of 5 images completed
+25-Jun-2026 02:00:53     Aligning channels by translation to topro for tile 2 x 1
+25-Jun-2026 02:00:53     Using z_displacement 0 for marker ctip2
+25-Jun-2026 02:00:57     1 out of 5 images completed
+25-Jun-2026 02:01:00     2 out of 5 images completed
+25-Jun-2026 02:01:04     3 out of 5 images completed
+25-Jun-2026 02:01:06     4 out of 5 images completed
+25-Jun-2026 02:01:09     5 out of 5 images completed
+25-Jun-2026 02:01:09     Aligning channels by translation to topro for tile 2 x 2
+25-Jun-2026 02:01:09     Using z_displacement 0 for marker ctip2
+25-Jun-2026 02:01:14     1 out of 5 images completed
+25-Jun-2026 02:01:16     2 out of 5 images completed
+25-Jun-2026 02:01:19     3 out of 5 images completed
+25-Jun-2026 02:01:22     4 out of 5 images completed
+25-Jun-2026 02:01:26     5 out of 5 images completed
+25-Jun-2026 02:01:26     Saving samples
+25-Jun-2026 02:01:27     Saving path table
+Loading image information
+Loading transforms from alignment table
+25-Jun-2026 02:01:27     Quick loading from table
+Reading marker topro
+Reading marker ctip2
+Loading image information
+Loading transforms from alignment table
+25-Jun-2026 02:01:27     Quick loading from table
+Reading marker topro
+Reading marker ctip2
+Loading image information
+Loading transforms from alignment table
+25-Jun-2026 02:01:27     Quick loading from table
+Reading marker topro
+Reading marker ctip2
+Loading image information
+Loading transforms from alignment table
+25-Jun-2026 02:01:27     Quick loading from table
+Reading marker topro
+Reading marker ctip2
+25-Jun-2026 02:01:27     Alignment for sample sample25 completed!
+
+ans =
+
+  struct with fields:
+
+                   DoG_factor: [1 1]
+                      DoG_img: ["false"    "false"]
+                   DoG_minmax: [0.8000 2]
+                        Gamma: [1 1]
+             adjust_intensity: "true"
+         adjust_tile_position: "true"
+          adjust_tile_shading: "basic"
+               align_channels: []
+                 align_chunks: []
+                 align_method: "translation"
+                 align_slices: {}
+               align_stepsize: 5
+                  align_tiles: []
+              blending_method: ["sigmoid"    "sigmoid"]
+                   border_pad: 25
+            channel_alignment: "true"
+                  channel_num: ["C01"    "C00"]
+                    chunk_pad: 30
+          darkfield_intensity: [101 101]
+               elastix_params: "32_bins"
+                    flip_axis: "none"
+                        group: ["TEST"    "WT"    "R1"]
+                   hemisphere: "left"
+                   hist_match: 64
+                       ig_idx: [0 0]
+               ignore_markers: "Auto"
+                img_directory: "/mnt/ssd/numorph_testdata_s/test_images/ctip2_topro"
+         laser_y_displacement: 0
+        load_alignment_params: "true"
+                  lowerThresh: []
+                     ls_width: 50
+                   main_stage: 'process'
+                      markers: ["topro"    "ctip2"]
+           mask_int_threshold: []
+               max_chunk_size: 300
+                   nuc_radius: 13
+                      only_pc: "false"
+                  orientation: "ail"
+             output_directory: "/mnt/ssd/performance_benchmark/matlab/replicate_25"
+                      overlap: 0.1500
+                 position_exp: ["[\d*"    "\d*]"    "Z\d*"]
+                    pre_align: "false"
+                   resample_s: [3 3 1]
+          rescale_intensities: ["false"    "false"]
+                   resolution: {[1.2100 1.2100 4]  [1.2100 1.2100 4]}
+                  rotate_axis: 0
+                       sample: 'sample25'
+                    sample_id: 'sample25'
+           sampling_frequency: 0.2000
+                    save_flag: 1
+                  save_images: "true"
+                 save_samples: "true"
+                           sd: 0.0500
+     shading_correction_tiles: []
+            shading_intensity: 1
+           shading_smoothness: 2
+              sift_refinement: "true"
+                 signalThresh: []
+                 single_sheet: ["true"    "true"]
+                   smooth_img: ["false"    "false"]
+                 smooth_sigma: [1 1]
+                        stage: 'process'
+                stitch_images: "true"
+           stitch_start_slice: []
+           stitch_sub_channel: []
+             stitch_sub_stack: []
+          subtract_background: ["false"    "false"]
+    update_intensity_channels: []
+          update_z_adjustment: "true"
+                  upperThresh: []
+         use_processed_images: "false"
+               variable_names: {23x1 cell}
+                    z_initial: [0 0]
+                  z_positions: 0.0100
+                     z_window: 5
+
+===== MATLAB Execution Summary =====
+Script:               NM_config('align','sample25',true)
+Exit status:          0
+Wall time (ms):       85492
+Wall time (hh:mm:ss): 00:01:25
+CPU usage:            5967%
+CPU cores available:  16
+CPU model:            Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz
+Peak RSS:             0 MB
+Peak virtual mem:     0 MB
+Bytes read:           0
+Bytes written:        17289216
+
+Trace file:  /mnt/ssd/performance_benchmark/matlab/replicate_25/process_align/matlab_trace.log
+CSV file:    /mnt/ssd/performance_benchmark/matlab/replicate_25/process_align/matlab_resource_usage.csv
+[2026-06-25 02:01:31]   MATLAB process align complete.
+[2026-06-25 02:01:31]   Running MATLAB process: stitch
+[2026-06-25 02:01:31]   Command: NM_config('stitch','sample25',true)
+Starting MATLAB: /home/schwitalla/Documents/R2023a/bin/./matlab -nodesktop -nodisplay -nosplash -batch "NM_config('intensity','test_monitor',tru
+e)"
+Output directory: /mnt/ssd/performance_benchmark/matlab/replicate_25/process_stitch
+MATLAB PID: 892560
+Warning: Function cummax has the same name as a MATLAB built-in. We suggest you
+rename the function to avoid a potential name conflict.
+> In path (line 109)
+In addpath (line 86)
+In NM_config (line 39)
+Warning: Function det has the same name as a MATLAB built-in. We suggest you
+rename the function to avoid a potential name conflict.
+> In path (line 109)
+In addpath (line 86)
+In NM_config (line 39)
+25-Jun-2026 02:01:35     Working on sample sample25
+25-Jun-2026 02:01:35     Reading image filename information from raw image directory
+25-Jun-2026 02:01:35     Quick loading from table
+25-Jun-2026 02:01:35     Loading adjustment parameters
+25-Jun-2026 02:01:35     Perfoming iterative 2D image stitching
+25-Jun-2026 02:01:35     Calculating z displacement matrix for stitching
+25-Jun-2026 02:01:35     Performing horizontal pairwise z alignment
+25-Jun-2026 02:01:35     Aligning tiles 01x01    01x02
+                         Z displacement: -2      Mean cross correlation: 0.848
+25-Jun-2026 02:01:37     Aligning tiles 02x01    02x02
+                         Z displacement: -2      Mean cross correlation: 0.983
+25-Jun-2026 02:01:38     Final horizontal displacement matrix: [0 -2;0 -2]
+25-Jun-2026 02:01:38     Performing vertical pairwise z alignment
+25-Jun-2026 02:01:38     Aligning tiles 01x01    01x02
+                         Z displacement: -1      Mean cross correlation: 0.835
+25-Jun-2026 02:01:39     Aligning tiles 02x01    02x02
+                         Z displacement: -1      Mean cross correlation: 0.933
+25-Jun-2026 02:01:40     Final vertical displacement matrix: [0 0;-1 -1]
+25-Jun-2026 02:01:40     Final displacement matrix: [1 -1;0 -2]
+25-Jun-2026 02:01:40     Generating new stitching parameters
+25-Jun-2026 02:01:40     Using SIFT refinement
+25-Jun-2026 02:01:40     Applying some intensity adjustments
+25-Jun-2026 02:01:40     Applying channel alignment parameters during stitching
+25-Jun-2026 02:01:40     Calculating stitching start position
+25-Jun-2026 02:01:40     Begin stitching 18 slices
+25-Jun-2026 02:01:40     Stitching image 17
+25-Jun-2026 02:01:44     Stitching image 16
+25-Jun-2026 02:01:48     Stitching image 15
+25-Jun-2026 02:01:51     Stitching image 14
+25-Jun-2026 02:01:55     Stitching image 13
+25-Jun-2026 02:01:58     Stitching image 12
+25-Jun-2026 02:02:02     Stitching image 11
+25-Jun-2026 02:02:05     Stitching image 10
+25-Jun-2026 02:02:09     Stitching image 9
+25-Jun-2026 02:02:12     Stitching image 8
+25-Jun-2026 02:02:16     Stitching image 7
+25-Jun-2026 02:02:19     Stitching image 6
+25-Jun-2026 02:02:23     Stitching image 5
+25-Jun-2026 02:02:26     Stitching image 4
+25-Jun-2026 02:02:30     Stitching image 3
+25-Jun-2026 02:02:34     Stitching image 2
+25-Jun-2026 02:02:37     Stitching image 1
+25-Jun-2026 02:02:41     Stitching image 18
+25-Jun-2026 02:02:44     Stitching for sample sample25 completed!
+
+ans =
+
+  struct with fields:
+
+                   DoG_factor: [1 1]
+                      DoG_img: ["false"    "false"]
+                   DoG_minmax: [0.8000 2]
+                        Gamma: [1 1]
+             adjust_intensity: "true"
+         adjust_tile_position: "true"
+          adjust_tile_shading: "basic"
+               align_channels: []
+                 align_chunks: []
+                 align_method: "translation"
+                 align_slices: {}
+               align_stepsize: 5
+                  align_tiles: []
+              blending_method: ["sigmoid"    "sigmoid"]
+                   border_pad: 25
+            channel_alignment: "true"
+                  channel_num: ["C01"    "C00"]
+                    chunk_pad: 30
+          darkfield_intensity: [101 101]
+               elastix_params: "32_bins"
+                    flip_axis: "none"
+                        group: ["TEST"    "WT"    "R1"]
+                   hemisphere: "left"
+                   hist_match: 64
+                       ig_idx: [0 0]
+               ignore_markers: "Auto"
+                img_directory: "/mnt/ssd/numorph_testdata_s/test_images/ctip2_topro"
+         laser_y_displacement: 0
+        load_alignment_params: "true"
+                  lowerThresh: []
+                     ls_width: 50
+                   main_stage: 'process'
+                      markers: ["topro"    "ctip2"]
+           mask_int_threshold: []
+               max_chunk_size: 300
+                   nuc_radius: 13
+                      only_pc: "false"
+                  orientation: "ail"
+             output_directory: "/mnt/ssd/performance_benchmark/matlab/replicate_25"
+                      overlap: 0.1500
+                 position_exp: ["[\d*"    "\d*]"    "Z\d*"]
+                    pre_align: "false"
+                   resample_s: [3 3 1]
+          rescale_intensities: ["false"    "false"]
+                   resolution: {[1.2100 1.2100 4]  [1.2100 1.2100 4]}
+                  rotate_axis: 0
+                       sample: 'sample25'
+                    sample_id: 'sample25'
+           sampling_frequency: 0.2000
+                    save_flag: 1
+                  save_images: "true"
+                 save_samples: "true"
+                           sd: 0.0500
+     shading_correction_tiles: []
+            shading_intensity: 1
+           shading_smoothness: 2
+              sift_refinement: "true"
+                 signalThresh: []
+                 single_sheet: ["true"    "true"]
+                   smooth_img: ["false"    "false"]
+                 smooth_sigma: [1 1]
+                        stage: 'process'
+                stitch_images: "true"
+           stitch_start_slice: []
+           stitch_sub_channel: []
+             stitch_sub_stack: []
+          subtract_background: ["false"    "false"]
+    update_intensity_channels: []
+          update_z_adjustment: "true"
+                  upperThresh: []
+         use_processed_images: "false"
+               variable_names: {23x1 cell}
+                    z_initial: [0 0]
+                  z_positions: 0.0100
+                     z_window: 5
+
+===== MATLAB Execution Summary =====
+Script:               NM_config('stitch','sample25',true)
+Exit status:          0
+Wall time (ms):       77027
+Wall time (hh:mm:ss): 00:01:17
+CPU usage:            1418%
+CPU cores available:  16
+CPU model:            Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz
+Peak RSS:             0 MB
+Peak virtual mem:     0 MB
+Bytes read:           40960
+Bytes written:        1037533184
+
+Trace file:  /mnt/ssd/performance_benchmark/matlab/replicate_25/process_stitch/matlab_trace.log
+CSV file:    /mnt/ssd/performance_benchmark/matlab/replicate_25/process_stitch/matlab_resource_usage.csv
+[2026-06-25 02:02:48]   MATLAB process stitch complete.
+[2026-06-25 02:02:48]   Running MATLAB process: count
+[2026-06-25 02:02:48]   Command: NM_config('count','sample25',true)
+Starting MATLAB: /home/schwitalla/Documents/R2023a/bin/./matlab -nodesktop -nodisplay -nosplash -batch "NM_config('intensity','test_monitor',tru
+e)"
+Output directory: /mnt/ssd/performance_benchmark/matlab/replicate_25/process_count
+MATLAB PID: 894380
+Warning: Function cummax has the same name as a MATLAB built-in. We suggest you
+rename the function to avoid a potential name conflict.
+> In path (line 109)
+In addpath (line 86)
+In NM_config (line 39)
+Warning: Function det has the same name as a MATLAB built-in. We suggest you
+rename the function to avoid a potential name conflict.
+> In path (line 109)
+In addpath (line 86)
+In NM_config (line 39)
+25-Jun-2026 02:02:52     Working on sample sample25
+25-Jun-2026 02:02:52     Saving path table
+25-Jun-2026 02:02:52     Intializing new structure for saving results
+25-Jun-2026 02:02:52     Running 3D-Unet prediction on GPU 0
+source activate 3dunet-centroid; export PYTHONPATH=/home/schwitalla/Documents/Original_Numorph/numorph_dev/src/analysis/3dunet; /home/schwitalla
+/miniconda3/envs/3dunet-centroid/bin/python /home/schwitalla/Documents/Original_Numorph/numorph_dev/src/analysis/3dunet/nuclei/generate_chunks.p
+y --mat /home/schwitalla/Documents/Original_Numorph/numorph_dev/src/analysis/3dunet/config.mat --g 0
+/bin/bash: line 1: activate: No such file or directory
+Using TensorFlow backend.
+Saving results to:  /mnt/ssd/performance_benchmark/matlab/replicate_25/sample25_centroids.csv
+Loading pre-trained model
+2026-06-25 02:02:53.594291: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was
+not compiled to use: AVX2 FMA
+2026-06-25 02:02:53.834131: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:964] successful NUMA node read from SysFS had negative value
+(-1), but there must be at least one NUMA node, so returning NUMA node zero
+2026-06-25 02:02:53.835055: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1432] Found device 0 with properties:
+name: NVIDIA GeForce RTX 3090 major: 8 minor: 6 memoryClockRate(GHz): 1.695
+pciBusID: 0000:02:00.0
+totalMemory: 23.56GiB freeMemory: 23.26GiB
+2026-06-25 02:02:53.835067: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2026-06-25 02:02:54.255199: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matr
+ix:
+2026-06-25 02:02:54.255218: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0
+2026-06-25 02:02:54.255223: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N
+2026-06-25 02:02:54.255284: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/
+device:GPU:0 with 22553 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce RTX 3090, pci bus id: 0000:02:00.0, compute capability: 8.6)
+Working on chunk 1 out of 1
+Reading slices 0 through 18
+Padding Chunk End...
+Rescaling Intensity...
+Images prepared in:  0:00:05.200339
+Object mask prediction time elapsed:  0:01:48.176648
+Postprocessing time elapsed:  0:02:08.399823
+Nuclei counted:  135129
+Total nuclei counted:  135129
+Removed 0 empty nuclei
+Removed 549 touching nuclei
+Total nuclei counted:  134580
+Total time elapsed:  0:02:09.264665
+25-Jun-2026 02:05:13     Total cells counted: 134580
+
+ans =
+
+  struct with fields:
+
+              annotation_file: "3Drecon-ADMBA-P4_annotation.mat"
+           annotation_mapping: "atlas"
+        annotation_resolution: 25
+                   atlas_file: "3Drecon-ADMBA-P4_atlasVolume.nii"
+         average_nuc_diameter: 11
+                  channel_num: ["C01"    "C00"]
+                chunk_overlap: [16 16 8]
+                   chunk_size: [112 112 32]
+               classify_cells: "true"
+            classify_channels: []
+              classify_method: "threshold"
+     contains_nuclear_channel: "true"
+                 count_method: "3dunet"
+                 count_nuclei: "true"
+                          gpu: '0'
+                        group: ["TEST"    "WT"    "R1"]
+                   hemisphere: "left"
+                img_directory: "/mnt/ssd/numorph_testdata_s/test_images/ctip2_topro"
+         intensity_expression: "1*mode + 3*mad"
+         intensity_thresholds: []
+                 keep_classes: [1 2 3 4]
+                  load_groups: []
+                 load_patches: "true"
+                  lowerThresh: []
+                     ls_width: 50
+                   main_stage: 'analyze'
+                      markers: ["topro"    "ctip2"]
+    mask_cerebellum_olfactory: "true"
+             min_class_thresh: 0.5000
+                min_intensity: 200
+                   model_file: "075_121_model.h5"
+                    n_patches: 1000
+                  orientation: "ail"
+             output_directory: "/mnt/ssd/performance_benchmark/matlab/replicate_25"
+                      overlap: 0.1500
+                   patch_size: [50 6]
+                  points_file: []
+                 position_exp: ["[\d*"    "\d*]"    "Z\d*"]
+    prealign_annotation_index: []
+            process_directory: "/mnt/ssd/performance_benchmark/matlab/replicate_25/stitched"
+              register_images: "true"
+        registration_channels: 1
+       registration_direction: "atlas_to_image"
+      registration_parameters: "default"
+    registration_prealignment: "image"
+          remeasure_centroids: "false"
+            resample_channels: []
+              resample_images: "true"
+          resample_resolution: 25
+                   resolution: {[1.2100 1.2100 4]  [1.2100 1.2100 4]}
+                       sample: 'sample25'
+                    sample_id: 'sample25'
+                    save_flag: 1
+       save_registered_images: "true"
+                 signalThresh: []
+                        stage: 'analyze'
+                  upperThresh: []
+          use_annotation_mask: "false"
+                   use_points: "false"
+         use_processed_images: "stitched"
+               use_structures: []
+               variable_names: {8x1 cell}
+              z_normalization: "true"
+
+===== MATLAB Execution Summary =====
+Script:               NM_config('count','sample25',true)
+Exit status:          0
+Wall time (ms):       149597
+Wall time (hh:mm:ss): 00:02:29
+CPU usage:            44%
+CPU cores available:  16
+CPU model:            Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz
+Peak RSS:             0 MB
+Peak virtual mem:     0 MB
+Bytes read:           0
+Bytes written:        2572288
+
+Trace file:  /mnt/ssd/performance_benchmark/matlab/replicate_25/process_count/matlab_trace.log
+CSV file:    /mnt/ssd/performance_benchmark/matlab/replicate_25/process_count/matlab_resource_usage.csv
+[2026-06-25 02:05:18]   MATLAB process count complete.
+[2026-06-25 02:05:18] --- MATLAB replicate 25 DONE ---
+[2026-06-25 02:05:18] Completed 56 / 60 runs
+============================================================
+[2026-06-25 02:05:18] Run 57 / 60 : nextflow_10
+============================================================
+[2026-06-25 02:05:18] --- Nextflow replicate 10 START ---
+[2026-06-25 02:05:18] Output dir: /mnt/ssd/performance_benchmark/nextflow/replicate_10
+[2026-06-25 02:05:18] Work dir:   /mnt/ssd/performance_benchmark/nextflow/replicate_10/work
+Nextflow 26.04.4 is available - Please consider updating your version to it
+
+ N E X T F L O W   ~  version 25.10.4
+
+Launching `/home/schwitalla/Documents/lsmquant/main.nf` [jovial_fermi] DSL2 - revision: 4093aad3a1
+
+
+------------------------------------------------------
+                                        ,--./,-.
+        ___     __   __   __   ___     /,-._.--~'
+  |\ | |__  __ /  ` /  \ |__) |__         }  {
+  | \| |       \__, \__/ |  \ |___     \`-._,-`-,
+                                        `._,._,'
+  nf-core/lsmquant 1.0.2
+------------------------------------------------------
+
+Input/output options
+  input                : /home/schwitalla/Documents/sample_sheettest_local.csv
+  outdir               : /mnt/ssd/performance_benchmark/nextflow/replicate_10
+  stage                : int_align_stitch
+  nuclei_quantification: true
+  model_file           : /home/schwitalla/Documents/Original_Numorph/numorph_dev/src/analysis/3dunet/nuclei/models/075_121_model.h5
+
+Generic options
+  trace_report_suffix  : 2026-06-25_02-05-20
+
+Core Nextflow options
+  runName              : jovial_fermi
+  containerEngine      : docker
+  launchDir            : /home/schwitalla/Documents/Original_Numorph/numorph_dev
+  workDir              : /mnt/ssd/performance_benchmark/nextflow/replicate_10/work
+  projectDir           : /home/schwitalla/Documents/lsmquant
+  userName             : schwitalla
+  profile              : docker,gpu
+  configFiles          : /home/schwitalla/Documents/lsmquant/nextflow.config, /home/schwitalla/Documents/rescue_orphane_code_results/resource_us
+age/benchmark.config
+
+!! Only displaying parameters that differ from the pipeline defaults !!
+------------------------------------------------------
+
+* The pipeline
+    https://doi.org/10.5281/zenodo.19575110
+
+* The nf-core framework
+    https://doi.org/10.1038/s41587-020-0439-x
+
+* Software dependencies
+    https://github.com/nf-core/lsmquant/blob/master/CITATIONS.md
+
+executor >  local (15)
+[b4/6ad1e1] NFCORE_LSMQUANT:LSMQUANT:VALIDATE_PARAMETERS (TEST1)                         [100%] 1 of 1 
+[-        ] NFCORE_LSMQUANT:LSMQUANT:UNZIP                                               -
+[03/938295] NFCORE_LSMQUANT:LSMQUANT:STAGEFILES (TEST1)                                  [100%] 1 of 1 
+[fa/75a1dc] NFCORE_LSMQUANT:LSMQUANT:NUMORPH_PREPROCESSING:NUMORPH_INTENSITY (TEST1)     [100%] 1 of 1 
+[25/ef4a38] NFCORE_LSMQUANT:LSMQUANT:NUMORPH_PREPROCESSING:NUMORPHALIGN (TEST1)          [100%] 1 of 1 
+[c2/9db124] NFCORE_LSMQUANT:LSMQUANT:NUMORPH_PREPROCESSING:NUMORPHSTITCH (TEST1)         [100%] 1 of 1 
+[14/b23712] NFCORE_LSMQUANT:LSMQUANT:NUMORPH_PREPROCESSING:MAT2JSON (TEST1 - adj_params) [100%] 8 of 8 
+[ad/992895] NFCORE_LSMQUANT:LSMQUANT:NUMORPH3DUNET (TEST1)                               [100%] 1 of 1 
+[e7/81edd0] NFCORE_LSMQUANT:LSMQUANT:MULTIQC (lsmquant)                                  [100%] 1 of 1 
+-[nf-core/lsmquant] Pipeline completed successfully-
+Completed at: 25-Jun-2026 02:11:18
+Duration    : 5m 57s
+CPU hours   : 0.7
+Succeeded   : 15
+
+
+[2026-06-25 02:11:19] --- Nextflow replicate 10 DONE ---
+[2026-06-25 02:11:19] Completed 57 / 60 runs
+============================================================
+[2026-06-25 02:11:19] Run 58 / 60 : nextflow_30
+============================================================
+[2026-06-25 02:11:19] --- Nextflow replicate 30 START ---
+[2026-06-25 02:11:19] Output dir: /mnt/ssd/performance_benchmark/nextflow/replicate_30
+[2026-06-25 02:11:19] Work dir:   /mnt/ssd/performance_benchmark/nextflow/replicate_30/work
+Nextflow 26.04.4 is available - Please consider updating your version to it
+
+ N E X T F L O W   ~  version 25.10.4
+
+Launching `/home/schwitalla/Documents/lsmquant/main.nf` [thirsty_sanger] DSL2 - revision: 4093aad3a1
+
+
+------------------------------------------------------
+                                        ,--./,-.
+        ___     __   __   __   ___     /,-._.--~'
+  |\ | |__  __ /  ` /  \ |__) |__         }  {
+  | \| |       \__, \__/ |  \ |___     \`-._,-`-,
+                                        `._,._,'
+  nf-core/lsmquant 1.0.2
+------------------------------------------------------
+
+Input/output options
+  input                : /home/schwitalla/Documents/sample_sheettest_local.csv
+  outdir               : /mnt/ssd/performance_benchmark/nextflow/replicate_30
+  stage                : int_align_stitch
+  nuclei_quantification: true
+  model_file           : /home/schwitalla/Documents/Original_Numorph/numorph_dev/src/analysis/3dunet/nuclei/models/075_121_model.h5
+
+Generic options
+  trace_report_suffix  : 2026-06-25_02-11-20
+
+Core Nextflow options
+  runName              : thirsty_sanger
+  containerEngine      : docker
+  launchDir            : /home/schwitalla/Documents/Original_Numorph/numorph_dev
+  workDir              : /mnt/ssd/performance_benchmark/nextflow/replicate_30/work
+  projectDir           : /home/schwitalla/Documents/lsmquant
+  userName             : schwitalla
+  profile              : docker,gpu
+  configFiles          : /home/schwitalla/Documents/lsmquant/nextflow.config, /home/schwitalla/Documents/rescue_orphane_code_results/resource_us
+age/benchmark.config
+
+!! Only displaying parameters that differ from the pipeline defaults !!
+------------------------------------------------------
+
+* The pipeline
+    https://doi.org/10.5281/zenodo.19575110
+
+* The nf-core framework
+    https://doi.org/10.1038/s41587-020-0439-x
+
+* Software dependencies
+    https://github.com/nf-core/lsmquant/blob/master/CITATIONS.md
+
+executor >  local (15)
+[c4/4af314] NFCORE_LSMQUANT:LSMQUANT:VALIDATE_PARAMETERS (TEST1)                         [100%] 1 of 1 
+[-        ] NFCORE_LSMQUANT:LSMQUANT:UNZIP                                               -
+[78/71c721] NFCORE_LSMQUANT:LSMQUANT:STAGEFILES (TEST1)                                  [100%] 1 of 1 
+[bb/e87bd1] NFCORE_LSMQUANT:LSMQUANT:NUMORPH_PREPROCESSING:NUMORPH_INTENSITY (TEST1)     [100%] 1 of 1 
+[b9/a08409] NFCORE_LSMQUANT:LSMQUANT:NUMORPH_PREPROCESSING:NUMORPHALIGN (TEST1)          [100%] 1 of 1 
+[a8/e2a653] NFCORE_LSMQUANT:LSMQUANT:NUMORPH_PREPROCESSING:NUMORPHSTITCH (TEST1)         [100%] 1 of 1 
+[0b/755856] NFCORE_LSMQUANT:LSMQUANT:NUMORPH_PREPROCESSING:MAT2JSON (TEST1 - adj_params) [100%] 8 of 8 
+[88/367566] NFCORE_LSMQUANT:LSMQUANT:NUMORPH3DUNET (TEST1)                               [100%] 1 of 1 
+[45/1a5e68] NFCORE_LSMQUANT:LSMQUANT:MULTIQC (lsmquant)                                  [100%] 1 of 1 
+-[nf-core/lsmquant] Pipeline completed successfully-
+Completed at: 25-Jun-2026 02:17:19
+Duration    : 5m 58s
+CPU hours   : 0.7
+Succeeded   : 15
+
+
+[2026-06-25 02:17:20] --- Nextflow replicate 30 DONE ---
+[2026-06-25 02:17:20] Completed 58 / 60 runs
+============================================================
+[2026-06-25 02:17:20] Run 59 / 60 : nextflow_27
+============================================================
+[2026-06-25 02:17:20] --- Nextflow replicate 27 START ---
+[2026-06-25 02:17:20] Output dir: /mnt/ssd/performance_benchmark/nextflow/replicate_27
+[2026-06-25 02:17:20] Work dir:   /mnt/ssd/performance_benchmark/nextflow/replicate_27/work
+Nextflow 26.04.4 is available - Please consider updating your version to it
+
+ N E X T F L O W   ~  version 25.10.4
+
+Launching `/home/schwitalla/Documents/lsmquant/main.nf` [elegant_kimura] DSL2 - revision: 4093aad3a1
+
+
+------------------------------------------------------
+                                        ,--./,-.
+        ___     __   __   __   ___     /,-._.--~'
+  |\ | |__  __ /  ` /  \ |__) |__         }  {
+  | \| |       \__, \__/ |  \ |___     \`-._,-`-,
+                                        `._,._,'
+  nf-core/lsmquant 1.0.2
+------------------------------------------------------
+
+Input/output options
+  input                : /home/schwitalla/Documents/sample_sheettest_local.csv
+  outdir               : /mnt/ssd/performance_benchmark/nextflow/replicate_27
+  stage                : int_align_stitch
+  nuclei_quantification: true
+  model_file           : /home/schwitalla/Documents/Original_Numorph/numorph_dev/src/analysis/3dunet/nuclei/models/075_121_model.h5
+
+Generic options
+  trace_report_suffix  : 2026-06-25_02-17-22
+
+Core Nextflow options
+  runName              : elegant_kimura
+  containerEngine      : docker
+  launchDir            : /home/schwitalla/Documents/Original_Numorph/numorph_dev
+  workDir              : /mnt/ssd/performance_benchmark/nextflow/replicate_27/work
+  projectDir           : /home/schwitalla/Documents/lsmquant
+  userName             : schwitalla
+  profile              : docker,gpu
+  configFiles          : /home/schwitalla/Documents/lsmquant/nextflow.config, /home/schwitalla/Documents/rescue_orphane_code_results/resource_us
+age/benchmark.config
+
+!! Only displaying parameters that differ from the pipeline defaults !!
+------------------------------------------------------
+
+* The pipeline
+    https://doi.org/10.5281/zenodo.19575110
+
+* The nf-core framework
+    https://doi.org/10.1038/s41587-020-0439-x
+
+* Software dependencies
+    https://github.com/nf-core/lsmquant/blob/master/CITATIONS.md
+
+executor >  local (15)
+[db/79509d] NFCORE_LSMQUANT:LSMQUANT:VALIDATE_PARAMETERS (TEST1)                         [100%] 1 of 1 
+[-        ] NFCORE_LSMQUANT:LSMQUANT:UNZIP                                               -
+[74/ce29d0] NFCORE_LSMQUANT:LSMQUANT:STAGEFILES (TEST1)                                  [100%] 1 of 1 
+[fc/33721e] NFCORE_LSMQUANT:LSMQUANT:NUMORPH_PREPROCESSING:NUMORPH_INTENSITY (TEST1)     [100%] 1 of 1 
+[98/a1b8a2] NFCORE_LSMQUANT:LSMQUANT:NUMORPH_PREPROCESSING:NUMORPHALIGN (TEST1)          [100%] 1 of 1 
+[58/401e72] NFCORE_LSMQUANT:LSMQUANT:NUMORPH_PREPROCESSING:NUMORPHSTITCH (TEST1)         [100%] 1 of 1 
+[30/571d02] NFCORE_LSMQUANT:LSMQUANT:NUMORPH_PREPROCESSING:MAT2JSON (TEST1 - adj_params) [100%] 8 of 8 
+[dc/a82305] NFCORE_LSMQUANT:LSMQUANT:NUMORPH3DUNET (TEST1)                               [100%] 1 of 1 
+[30/ab7a87] NFCORE_LSMQUANT:LSMQUANT:MULTIQC (lsmquant)                                  [100%] 1 of 1 
+-[nf-core/lsmquant] Pipeline completed successfully-
+Completed at: 25-Jun-2026 02:23:18
+Duration    : 5m 55s
+CPU hours   : 0.7
+Succeeded   : 15
+
+
+[2026-06-25 02:23:19] --- Nextflow replicate 27 DONE ---
+[2026-06-25 02:23:19] Completed 59 / 60 runs
+============================================================
+[2026-06-25 02:23:19] Run 60 / 60 : nextflow_07
+============================================================
+[2026-06-25 02:23:19] --- Nextflow replicate 07 START ---
+[2026-06-25 02:23:19] Output dir: /mnt/ssd/performance_benchmark/nextflow/replicate_07
+[2026-06-25 02:23:19] Work dir:   /mnt/ssd/performance_benchmark/nextflow/replicate_07/work
+Nextflow 26.04.4 is available - Please consider updating your version to it
+
+ N E X T F L O W   ~  version 25.10.4
+
+Launching `/home/schwitalla/Documents/lsmquant/main.nf` [small_kirch] DSL2 - revision: 4093aad3a1
+
+
+------------------------------------------------------
+                                        ,--./,-.
+        ___     __   __   __   ___     /,-._.--~'
+  |\ | |__  __ /  ` /  \ |__) |__         }  {
+  | \| |       \__, \__/ |  \ |___     \`-._,-`-,
+                                        `._,._,'
+  nf-core/lsmquant 1.0.2
+------------------------------------------------------
+
+Input/output options
+  input                : /home/schwitalla/Documents/sample_sheettest_local.csv
+  outdir               : /mnt/ssd/performance_benchmark/nextflow/replicate_07
+  stage                : int_align_stitch
+  nuclei_quantification: true
+  model_file           : /home/schwitalla/Documents/Original_Numorph/numorph_dev/src/analysis/3dunet/nuclei/models/075_121_model.h5
+
+Generic options
+  trace_report_suffix  : 2026-06-25_02-23-21
+
+Core Nextflow options
+  runName              : small_kirch
+  containerEngine      : docker
+  launchDir            : /home/schwitalla/Documents/Original_Numorph/numorph_dev
+  workDir              : /mnt/ssd/performance_benchmark/nextflow/replicate_07/work
+  projectDir           : /home/schwitalla/Documents/lsmquant
+  userName             : schwitalla
+  profile              : docker,gpu
+  configFiles          : /home/schwitalla/Documents/lsmquant/nextflow.config, /home/schwitalla/Documents/rescue_orphane_code_results/resource_us
+age/benchmark.config
+
+!! Only displaying parameters that differ from the pipeline defaults !!
+------------------------------------------------------
+
+* The pipeline
+    https://doi.org/10.5281/zenodo.19575110
+
+* The nf-core framework
+    https://doi.org/10.1038/s41587-020-0439-x
+
+* Software dependencies
+    https://github.com/nf-core/lsmquant/blob/master/CITATIONS.md
+
+executor >  local (15)
+[6b/7b446a] NFCORE_LSMQUANT:LSMQUANT:VALIDATE_PARAMETERS (TEST1)                         [100%] 1 of 1 
+[-        ] NFCORE_LSMQUANT:LSMQUANT:UNZIP                                               -
+[44/cafad3] NFCORE_LSMQUANT:LSMQUANT:STAGEFILES (TEST1)                                  [100%] 1 of 1 
+[ac/ae1378] NFCORE_LSMQUANT:LSMQUANT:NUMORPH_PREPROCESSING:NUMORPH_INTENSITY (TEST1)     [100%] 1 of 1 
+[6b/33f65c] NFCORE_LSMQUANT:LSMQUANT:NUMORPH_PREPROCESSING:NUMORPHALIGN (TEST1)          [100%] 1 of 1 
+[62/74a634] NFCORE_LSMQUANT:LSMQUANT:NUMORPH_PREPROCESSING:NUMORPHSTITCH (TEST1)         [100%] 1 of 1 
+[80/0e11d0] NFCORE_LSMQUANT:LSMQUANT:NUMORPH_PREPROCESSING:MAT2JSON (TEST1 - adj_params) [100%] 8 of 8 
+[97/65689f] NFCORE_LSMQUANT:LSMQUANT:NUMORPH3DUNET (TEST1)                               [100%] 1 of 1 
+[d2/68ba0e] NFCORE_LSMQUANT:LSMQUANT:MULTIQC (lsmquant)                                  [100%] 1 of 1 
+-[nf-core/lsmquant] Pipeline completed successfully-
+Completed at: 25-Jun-2026 02:29:20
+Duration    : 5m 57s
+CPU hours   : 0.7
+Succeeded   : 15
+
+
+[2026-06-25 02:29:20] --- Nextflow replicate 07 DONE ---
+[2026-06-25 02:29:20] Completed 60 / 60 runs
+============================================================
+[2026-06-25 02:29:20] Benchmark run complete.
+[2026-06-25 02:29:20] Total runs completed: 60 / 60
+[2026-06-25 02:29:20] Skipped (already complete): 4
+[2026-06-25 02:29:20] Results in: /mnt/ssd/performance_benchmark
+============================================================
+(nf-core) schwitalla@midas:~/Documents/Original_Numorph/numorph_dev$

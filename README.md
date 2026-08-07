@@ -1,4 +1,4 @@
-# Rescuing Orphan Bioinformatics Workflows esults
+# Rescuing Orphan Bioinformatics Workflows results
 
 This repository contains the Jupyter notebooks used for the analyses, figure generation, and selected results associated with the manuscript: 
 

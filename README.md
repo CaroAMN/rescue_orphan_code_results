@@ -5,6 +5,7 @@ This repository contains the Jupyter notebooks used for the analyses, figure gen
 **From Abandoned Scripts to FAIR Community Pipelines: Rescuing Orphan Bioinformatics Workflows with nf-core — Lessons from Light-Sheet Fluorescence Microscopy**
 
 DOI: https://doi.org/10.64898/2026.07.29.741447
+
 ---
 # Reproducing the Manuscript Results
 The workflow consists of two stages:
@@ -14,6 +15,7 @@ The workflow consists of two stages:
 2. Analyzing the generated results using the notebooks provided in this repository.
 
 The raw benchmark outputs required for the analyses can be downloaded from Zenodo: `<RESULTS_DOI>`.
+
 ---
 
 # Repository Structure

@@ -1,33 +1,124 @@
-# Rescuing Orphan Bioinformatics Workflows
+# Rescuing Orphan Bioinformatics Workflows esults
 
-This repository contains scripts and parts of the results for the paper ( to be submitted: From Abandoned Scripts to FAIR Community Pipelines: Rescuing Orphan Bioinformatics Workflows with nf-core — Lessons from Light-Sheet Fluorescence Microscopy)
+This repository contains the Jupyter notebooks used for the analyses, figure generation, and selected results associated with the manuscript: 
 
-The Repository ist structured as follows: 
+**From Abandoned Scripts to FAIR Community Pipelines: Rescuing Orphan Bioinformatics Workflows with nf-core — Lessons from Light-Sheet Fluorescence Microscopy**
 
-resource_usage: 
-- figures: 
-    - `Figure 6`: as png and svg
-    - `Figure 7`: as png and svg
-- results: aggregated results for resource usage and batch processing
-    - `screen_output.txt`: commandline output generated during the benchmark run 
-    - `benchmark-summary_stats.json`: dataframe containing the summary statistics from the benchmark run 
-    - `scaling_results.csv`: aggregated data obtained by the batch processing experiment
-- scripts: contains bash scripts for the benchmark run and scaling experiments
-    - `benshmark.sh`: the script was used to run the benchmark experiments of executing nf-core/lsmquant and NuMorph each 30 times on the same sample automatically and in random order. 
-    - `monitoring_script.sh`: the script is used to monitor NuMorphs resource usage during execution. It is based on the logic of how nextflow monitors processes to enable similar comparison of resources. 
-    - `scaling.sh`: this script is used to run NuMorphs scaling experiment (processing multiple samples)
+DOI: https://doi.org/10.64898/2026.07.29.741447
+---
+# Reproducing the Manuscript Results
+The workflow consists of two stages:
 
-- `benchmark.config`: config file to allow nf-core/lsmquant as much resources as the process wants. The resource limits are set to the hardware limits.
-- `resource_and_scalin_results.ipynb`: Jupyter notebook that was used to aggregate raw data and generate the figures and results for resource usage and scaling experiments.
+1. Running the benchmark and scaling experiments using the archived NuMorph benchmarking repository.
 
-functional_equivalence_testing: 
-- figures:
-    - `Figure 4`: as png and svg
-    - `Figure 5`: as png and svg
-    - `Figure S1`: as png and svg
-- results: contains calculated MSE matrices for output comparisons
-    - `mse_brn2_lsmquant_numorph.csv`: all MSE calculations per z-plane for the channel brn2 (full mouse brain dataset)
-    - `mse_ctip2_lsmquant_numorph.csv`: all MSE calculations per z-plane for the channel ctip2 (full mouse brain dataset)
-    - `mse_topro_lsmquant_numorph.csv`: all MSE calculations per z-plane for the channel topro (full mouse brain dataset)  
-    - `mse_matrix_C1.csv`: all pairwise MSE calculations for each replicate of the benchmark experiment for channel 1 ctip2 (test dataset)
-    - `mse_matrix_C2.csv`:all pairwise MSE calculations for each replicate of the benchmark experiment for channel 2 topro (test dataset)
+2. Analyzing the generated results using the notebooks provided in this repository.
+
+The raw benchmark outputs required for the analyses can be downloaded from Zenodo: `<RESULTS_DOI>`.
+---
+
+# Repository Structure
+
+## resource_usage 
+This directory contains the notebooks, figures, and processed results used for the resource usage and scaling analyses.
+### figures 
+- `Figure 6` (PNG and SVG)
+- `Figure 7` (PNG and SVG)
+### results
+Aggregated results for the resource usage benchmark and scaling experiments.
+- `screen_output.txt`: Command-line output generated during the benchmark runs. 
+- `benchmark-summary_stats.json`: Summary statistics generated from the benchmark experiment. 
+- `scaling_results.csv`: Aggregated results from the scaling experiment.
+
+### Analysis notebook
+- `resource_and_scalin_results.ipynb`: Notebook used to aggregate raw benchmark and scaling data and generate the corresponding manuscript figures.
+---
+
+## functional_equivalence_testing 
+This directory contains analyses evaluating the functional equivalence of NuMorph and nf-core/lsmquant.
+### figures
+- `Figure 4`: (PNG and SVG)
+- `Figure 5`: (PNG and SVG)
+- `Figure S1`: (PNG and SVG)
+
+### results
+Contains mean squared error (MSE) calculations used for output comparisons.
+#### Full Mouse Brain Dataset
+- `mse_brn2_lsmquant_numorph.csv`: MSE values calculated per z-plane for the BRN2 channel.
+- `mse_ctip2_lsmquant_numorph.csv`: MSE values calculated per z-plane for the CTIP2 channel.
+- `mse_topro_lsmquant_numorph.csv`: MSE values calculated per z-plane for the TO-PRO channel.  
+
+#### Benchmark Dataset
+
+- `mse_matrix_C1.csv`: Pairwise MSE values calculated for all benchmark replicates for channel C1 (CTIP2).
+- `mse_matrix_C2.csv`:Pairwise MSE values calculated for all benchmark replicates for channel C2 (TO-PRO).
+---
+
+# Setup
+
+## Prerequisites
+Create a Conda environment using the provided environment file:
+
+```bash
+conda env create -f environment.yml
+conda activate orphan-bioinformatics-workflows 
+```
+Download the benchmark results archive from Zenodo: 
+
+# Functional Equivalence Analysis 
+
+Open the notebook used for output comparison and update the following paths. 
+
+## Using Raw Benchmark Results
+Update the variables in Cell 4:
+- matlab_dir = path/to/results/performance_benchmark/matlab 
+- nextflow_dir = path/to/results/performance_benchmark/nextflow
+Run the notebook from the beginning.
+
+## Using the Provided Processed Results
+Run Cells 1-3 and continue execution from Cell 18.
+For image visualization in Cell 19, update the image paths accordingly, for example:
+- adjust image file paths in cell 19 = path/to/results/performance_benchmark/matlab/replicate_08/stitched/sample08_0009_C2_ctip2_stitched.tif
+Update all displayed image paths as necessary.
+
+## Reproducing Figure S1
+Start execution from:
+```text
+Read MSE per channel per z-plane from file
+```
+Then execute the subsequent cells to generate Figure S1.
+---
+
+# Resource Usage Analysis
+Open the notebook resource_and_scaling_results.
+
+## Using Raw Benchmark Results
+Update Cell 1:
+```text
+res_base_path = path/to/results/performance_benchmark
+```
+Run the notebook from Cell 2 onward to regenerate the benchmark summary tables and figures from the raw outputs.
+
+## Using the Provided Processed Results
+Start execution from:
+```text
+Load benchmark data
+```
+This will load the precomputed benchmark dataframe included in the repository.
+---
+
+# Scaling results
+Open:
+```text
+resource_and_scaling_results.ipynb
+```
+## Using Raw Scaling Results
+Update the following variables:
+- lsmquant_scaling_base_path = /path/to/results/performance_benchmark/scaling/nextflow
+- numorph_scaling_base_path = /path/to/results/performance_benchmark/scaling/
+Run the notebook sections used for aggregating scaling results.
+## Using the Provided Processed Results
+Start execution from:
+```text
+Manuscript Figure 7
+```
+This section loads the processed scaling data and reproduces the scaling analysis figures.

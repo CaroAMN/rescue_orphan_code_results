@@ -32,7 +32,7 @@ Aggregated results for the resource usage benchmark and scaling experiments.
 - `scaling_results.csv`: Aggregated results from the scaling experiment.
 
 ### Analysis notebook
-- `resource_and_scalin_results.ipynb`: Notebook used to aggregate raw benchmark and scaling data and generate the corresponding manuscript figures.
+- `resource_and_scaling_results.ipynb`: Notebook used to aggregate raw benchmark and scaling data and generate the corresponding manuscript figures.
 ---
 
 ## functional_equivalence_testing 
@@ -77,9 +77,9 @@ Update the variables in Cell 4:
 Run the notebook from the beginning.
 
 ## Using the Provided Processed Results
-Run Cells 1-3 and continue execution from Cell 18.
-For image visualization in Cell 19, update the image paths accordingly, for example:
-- adjust image file paths in cell 19 = path/to/results/performance_benchmark/matlab/replicate_08/stitched/sample08_0009_C2_ctip2_stitched.tif
+Run Cells 1-3 and continue execution from Cell 12.
+For image visualization in Cell 13, update the image paths accordingly, for example:
+-  path/to/results/performance_benchmark/matlab/replicate_08/stitched/sample08_0009_C2_ctip2_stitched.tif
 Update all displayed image paths as necessary.
 
 ## Reproducing Figure S1

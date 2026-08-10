@@ -10,7 +10,8 @@ DOI: https://doi.org/10.64898/2026.07.29.741447
 # Reproducing the Manuscript Results
 The workflow consists of two stages:
 
-1. Running the benchmark and scaling experiments using the archived NuMorph benchmarking repository.
+1. Running the benchmark and scaling experiments using the archived NuMorph benchmarking repository: DOI: https://doi.org/10.5281/zenodo.21827074
+
 
 2. Analyzing the generated results using the notebooks provided in this repository.
 

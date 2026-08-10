@@ -14,7 +14,7 @@ The workflow consists of two stages:
 
 2. Analyzing the generated results using the notebooks provided in this repository.
 
-The raw benchmark outputs required for the analyses can be downloaded from Zenodo: `<RESULTS_DOI>`.
+The raw benchmark and scaling outputs associated with this study are currently being prepared for deposition in a public repository. The location and persistent identifier will be added upon completion.
 
 ---
 

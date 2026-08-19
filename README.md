@@ -15,11 +15,9 @@ The workflow consists of two stages:
 
 2. Analyzing the generated results using the notebooks provided in this repository.
 
-The raw benchmark and scaling outputs associated with this study are currently being prepared for deposition in a public repository. The location and persistent identifier will be added upon completion.
-
 ---
 
-# Repository Structure
+# 1. Repository Structure
 
 ## resource_usage 
 This directory contains the notebooks, figures, and processed results used for the resource usage and scaling analyses.
@@ -30,7 +28,10 @@ This directory contains the notebooks, figures, and processed results used for t
 Aggregated results for the resource usage benchmark and scaling experiments.
 - `screen_output.txt`: Command-line output generated during the benchmark runs. 
 - `benchmark-summary_stats.json`: Summary statistics generated from the benchmark experiment. 
-- `scaling_results.csv`: Aggregated results from the scaling experiment.
+- `scaling_results.csv`: Aggregated results from the batch processing experiment.
+- `benchmark_results.csv` : Aggregated resource usage results from the benchmark experiment
+- `benchmark_run.log`: Log file for the benchmark experiment
+- `run_order.txt`: Randomized run order of nf-core/lsmquant and NuMorph for the benchmark experiment
 
 ### Analysis notebook
 - `resource_and_scaling_results.ipynb`: Notebook used to aggregate raw benchmark and scaling data and generate the corresponding manuscript figures.
@@ -56,7 +57,7 @@ Contains mean squared error (MSE) calculations used for output comparisons.
 - `mse_matrix_C2.csv`:Pairwise MSE values calculated for all benchmark replicates for channel C2 (TO-PRO).
 ---
 
-# Setup
+# 2. Setup
 
 ## Prerequisites
 Create a Conda environment using the provided environment file:
@@ -65,22 +66,27 @@ Create a Conda environment using the provided environment file:
 conda env create -f environment.yml
 conda activate orphan-bioinformatics-workflows 
 ```
-Download the benchmark results archive from Zenodo: 
+Download the benchmark and batch processing results archives from Zenodo: 
+- nf-core/lsmquant DOI: 10.5281/zenodo.21995698
+- NuMorph DOI: 10.5281/zenodo.22010169
+- batch processing DOI: 10.5281/zenodo.22011337
 
-# Functional Equivalence Analysis 
+# 3. Functional Equivalence Analysis 
 
 Open the notebook used for output comparison and update the following paths. 
 
 ## Using Raw Benchmark Results
 Update the variables in Cell 4:
-- matlab_dir = path/to/results/performance_benchmark/matlab 
-- nextflow_dir = path/to/results/performance_benchmark/nextflow
+- matlab_dir = path/to/numorph_benchmark_results_folder 
+- nextflow_dir = /path/to/lsmquant_benchmark_results_folder
 Run the notebook from the beginning.
 
 ## Using the Provided Processed Results
 Run Cells 1-3 and continue execution from Cell 12.
 For image visualization in Cell 13, update the image paths accordingly, for example:
--  path/to/results/performance_benchmark/matlab/replicate_08/stitched/sample08_0009_C2_ctip2_stitched.tif
+-  path/to/numorph_benchmark_results_folder/replicate_08/stitched/sample08_0009_C2_ctip2_stitched.tif
+- /path/to/lsmquant_benchmark_results_folder/replicate_21/numorphstitch/TEST1/stitched/TEST1_0009_C2_ctip2_stitched.tif
+
 Update all displayed image paths as necessary.
 
 ## Reproducing Figure S1
@@ -91,13 +97,14 @@ Read MSE per channel per z-plane from file
 Then execute the subsequent cells to generate Figure S1.
 ---
 
-# Resource Usage Analysis
+# 4. Resource Usage Analysis
 Open the notebook resource_and_scaling_results.
 
 ## Using Raw Benchmark Results
 Update Cell 1:
 ```text
-res_base_path = path/to/results/performance_benchmark
+lsmquant_base_path = path/to/lsmquant_benchmark_results_folder
+numorph_base_path = path/to/numorph_benchmark_results_folder
 ```
 Run the notebook from Cell 2 onward to regenerate the benchmark summary tables and figures from the raw outputs.
 
@@ -106,7 +113,7 @@ Start execution from:
 ```text
 Load benchmark data
 ```
-This will load the precomputed benchmark dataframe included in the repository.
+This will load the precomputed benchmark dataframe included in the results folder.
 ---
 
 # Scaling results
@@ -116,8 +123,8 @@ resource_and_scaling_results.ipynb
 ```
 ## Using Raw Scaling Results
 Update the following variables:
-- lsmquant_scaling_base_path = /path/to/results/performance_benchmark/scaling/nextflow
-- numorph_scaling_base_path = /path/to/results/performance_benchmark/scaling/
+- lsmquant_scaling_base_path = /path/to/scaling_results/scaling/nextflow
+- numorph_scaling_base_path = /path/to/scaling_results/scaling/
 Run the notebook sections used for aggregating scaling results.
 ## Using the Provided Processed Results
 Start execution from:
